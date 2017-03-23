@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Places Prototype</string>
+    <string name="access_token">pk.eyJ1Ijoia3JsbHVzIiwiYSI6ImNqMGI4em5rMDAyeDQycW96emNvY213bTcifQ.Vdu2cGLN8BlUvlm3FWNOBw</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et tellus eu erat dictum mollis. Duis porttitor massa lorem, vitae pharetra metus vehicula ut. Aliquam erat volutpat. Etiam euismod leo in leo suscipit feugiat. Cras tincidunt ligula a sapien tincidunt, a eleifend ipsum bibendum. Proin ornare interdum ligula at finibus. Sed fermentum, purus et ultrices iaculis, mauris sapien porta lorem, a consectetur diam justo sed quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce rhoncus non dui a placerat. Suspendisse pharetra turpis ut metus ultricies. Nunc ullamcorper feugiat eros vel ornare. Praesent sed turpis ut erat commodo pretium nec hendrerit sapien. Nulla ornare consequat lacus id lacinia. Vivamus eget mattis justo, at auctor diam.</string>
+</resources>
