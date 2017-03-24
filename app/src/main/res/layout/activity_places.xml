@@ -25,7 +25,7 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/bottom_sheet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:clipToPadding="true"
         android:paddingTop="8dp"
         android:background="@android:color/white"
@@ -45,12 +45,12 @@
                 android:paddingRight="8dp"
                 >
 
-                <android.support.v4.widget.CircleImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/windows_xp"
+                    android:src="@drawable/planta"
                     android:layout_marginLeft="8dp"
-                    android:scaleType="fitCenter"/>
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,7 +101,7 @@
                     android:layout_height="48dp"
                     android:layout_marginLeft="8dp"
                     android:scaleType="center"
-                    android:src="@drawable/ic_location_on_black_24dp" />
+                    android:src="@drawable/ic_phone_black_24dp" />
 
                 <TextView
                     android:layout_width="match_parent"

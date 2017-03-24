@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.0'
     compile 'com.android.support:design:25.3.0'
     testCompile 'junit:junit:4.12'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
     compile ('com.mapbox.mapboxsdk:mapbox-android-sdk:4.2.2@aar'){
         transitive=true
     }
