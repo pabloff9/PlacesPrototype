@@ -7,7 +7,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.minhaufg.placesprototype.PlacesActivity">
 
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </android.support.v4.view.ViewPager>
 
     <com.mapbox.mapboxsdk.maps.MapView
         android:id="@+id/mapview"
@@ -27,94 +31,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
-        android:paddingTop="8dp"
         android:background="@android:color/white"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
         >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                >
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/planta"
-                    android:layout_marginLeft="8dp"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nome do lugar"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="16dp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_location_on_black_24dp"
-                    android:layout_marginLeft="8dp"
-                    android:scaleType="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rua tal, Nº 1234"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="16dp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginLeft="8dp"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_phone_black_24dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="(62) 983 234 544"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="16dp"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <include layout="@layout/places_bottom_sheet"></include>
 
 
 

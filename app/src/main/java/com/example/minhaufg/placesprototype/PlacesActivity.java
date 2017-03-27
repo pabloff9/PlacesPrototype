@@ -1,12 +1,16 @@
 package com.example.minhaufg.placesprototype;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.NestedScrollingChild;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 
 import com.mapbox.mapboxsdk.MapboxAccountManager;
 import com.mapbox.mapboxsdk.annotations.Marker;
@@ -44,9 +48,7 @@ public class PlacesActivity extends AppCompatActivity {
                 mapboxMap.setOnMarkerClickListener(new MapboxMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(@NonNull Marker marker) {
-
-                        Log.d("MAPBOX", "Marker clicado");
-
+                        
                         CameraPosition position = new CameraPosition.Builder()
                                 .target(marker.getPosition())
                                 .zoom(17)
@@ -63,11 +65,9 @@ public class PlacesActivity extends AppCompatActivity {
 
                             @Override
                             public void onFinish() {
-                                bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
+                                bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
                             }
                         });
-
-
                         return false;
                     }
                 });
@@ -81,9 +81,40 @@ public class PlacesActivity extends AppCompatActivity {
         NestedScrollView bottomView = ((NestedScrollView) findViewById(R.id.bottom_sheet));
         bottomSheetBehaviour = BottomSheetBehavior.from(bottomView);
         bottomSheetBehaviour.setHideable(true);
-        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        bottomSheetBehaviour.setPeekHeight(0);
+        bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_HIDDEN);
+        bottomSheetBehaviour.setPeekHeight((int)convertDpToPixel(160, this));
 
+        bottomSheetBehaviour.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheet.findViewById(R.id.expanded_picture_and_name).setVisibility(View.VISIBLE);
+                    bottomSheet.findViewById(R.id.single_line_picture_and_name).setVisibility(View.GONE);
+                } else if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+                    bottomSheet.findViewById(R.id.expanded_picture_and_name).setVisibility(View.GONE);
+                    bottomSheet.findViewById(R.id.single_line_picture_and_name).setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
+
+    }
+
+    /**
+     * This method converts dp unit to equivalent pixels, depending on device density.
+     *
+     * @param dp A value in dp (density independent pixels) unit. Which we need to convert into pixels
+     * @param context Context to get resources and device specific display metrics
+     * @return A float value to represent px equivalent to dp depending on device density
+     */
+    public static float convertDpToPixel(float dp, Context context){
+        Resources resources = context.getResources();
+        DisplayMetrics metrics = resources.getDisplayMetrics();
+        return dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
     @Override
